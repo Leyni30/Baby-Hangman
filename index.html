@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Baby-Hangman</title>
+</head>
+
+<body>
+    <h1>Hangman</h1>
+    <script>
+        var words = ['ursula', 'neil', 'pamuk', 'ray'];
+        var word = words[Math.floor(Math.random() * words.length)];
+        var answeringWord = [];
+        for (var i = 0; i < word.length; i++) {
+            answeringWord[i] = '_';
+        }
+        var remainingGuesses = word.length;
+        while (remainingGuesses > 0) {
+            alert(answeringWord.join(' '));
+            var guess = prompt('Guess a letter, please; to guess the word.');
+
+            if (guess === null) {
+                break;
+            } else if (guess.length !== 1) {
+                alert('You can enter only 1 letter at a time');
+            } else {
+                for (var j = 0; j < word.length; j++) {
+                    if (word[j] === guess) {
+                        answeringWord[j] = guess;
+                        remainingGuesses--;
+                    }
+                }
+            }
+        }
+        alert(answeringWord.join(" "));
+        alert('Good job! The answer was ' + word);
+    </script>
+</body>
+
+</html>
