@@ -20,7 +20,7 @@
         var remainingGuesses = word.length;
         while (remainingGuesses > 0) {
             alert(answeringWord.join(' '));
-            var guess = prompt('Guess a letter, please; to guess the word.');
+            var guess = prompt('Guess a letter, please; to guess the word.').toLowerCase();
 
             if (guess === null) {
                 break;
